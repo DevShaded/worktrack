@@ -8,6 +8,10 @@ import TextInput from '@/Components/TextInput.vue';
 
 const form = useForm({
     name: '',
+    industry: '',
+    address: '',
+    contact_email: '',
+    contact_phone: '',
 });
 
 const createTeam = () => {
@@ -54,6 +58,54 @@ const createTeam = () => {
                     autofocus
                 />
                 <InputError :message="form.errors.name" class="mt-2" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="Industry" value="Company industry" />
+                <TextInput
+                    id="industry"
+                    v-model="form.industry"
+                    type="text"
+                    class="block w-full mt-1"
+                    autofocus
+                />
+                <InputError :message="form.errors.industry" class="mt-2" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="address" value="Company address" />
+                <TextInput
+                    id="address"
+                    v-model="form.address"
+                    type="text"
+                    class="block w-full mt-1"
+                    autofocus
+                />
+                <InputError :message="form.errors.address" class="mt-2" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="contact_email" value="Contact email" />
+                <TextInput
+                    id="contact_email"
+                    v-model="form.contact_email"
+                    type="text"
+                    class="block w-full mt-1"
+                    autofocus
+                />
+                <InputError :message="form.errors.contact_email" class="mt-2" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="contact_phone" value="Contact phone" />
+                <TextInput
+                    id="contact_phone"
+                    v-model="form.contact_phone"
+                    type="text"
+                    class="block w-full mt-1"
+                    autofocus
+                />
+                <InputError :message="form.errors.contact_phone" class="mt-2" />
             </div>
         </template>
 
