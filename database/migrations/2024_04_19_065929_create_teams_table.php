@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->index();
             $table->string('name');
+            $table->string('industry')->nullable();
+            $table->string('address')->nullable();
+            $table->string('contact_email');
+            $table->string('contact_phone')->nullable();
             $table->boolean('personal_team');
             $table->timestamps();
         });
