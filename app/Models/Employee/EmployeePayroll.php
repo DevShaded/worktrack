@@ -2,11 +2,14 @@
 
 namespace App\Models\Employee;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class EmployeePayroll extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'month',
         'year',
