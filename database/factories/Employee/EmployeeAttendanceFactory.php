@@ -13,11 +13,15 @@ class EmployeeAttendanceFactory extends Factory
 
     public function definition(): array
     {
+        $clockInTime = Carbon::now();
+        $clockOutTime = Carbon::now()->addHours($this->faker->randomFloat(1, 1, 12));
+        $totalHoursWorked = abs($clockOutTime->diffInHours($clockInTime));
+
         return [
             'employee_id' => Employee::factory(),
-            'clock_in_time' => Carbon::now(),
-            'clock_out_time' => Carbon::now()->addHours($this->faker->randomDigit()),
-            'total_hours_worked' => $this->faker->randomFloat(),
+            'clock_in_time' => $clockInTime,
+            'clock_out_time' => $clockOutTime,
+            'total_hours_worked' => $totalHoursWorked,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
