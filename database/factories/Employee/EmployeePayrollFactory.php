@@ -19,9 +19,9 @@ class EmployeePayrollFactory extends Factory
             'year' => $this->faker->year(),
             'regular_hours_worked' => $this->faker->randomFloat(),
             'overtime_hours_worked' => $this->faker->randomFloat(),
-            'total_earnings' => $this->faker->randomFloat(),
-            'deductions' => $this->faker->randomFloat(),
-            'net_pay' => $this->faker->randomFloat(),
+            'total_earnings' => $this->faker->randomFloat(null, 0, 1000),
+            'deductions' => $this->faker->randomFloat(null, 0, 1000),
+            'net_pay' => $this->faker->randomFloat(null, 0, 1000),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

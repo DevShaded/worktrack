@@ -34,8 +34,8 @@ class TeamController extends Controller
             'stats' => [
                 'allEmployees' => $team->employees->count(),
                 'allLeaveRequests' => $team->employees->flatMap->employeeLeaveRequests->count(),
-                'totalPayroll' => $team->employees->flatMap->employeePayrolls->sum('total_earnings') ?: '0.00',
-                'averageHoursWorked' => $team->employees->flatMap->employeeAttendances->avg('total_hours_worked') ?: '0.00',
+                'totalPayroll' => floatval($team->employees->flatMap->employeePayrolls->sum('total_earnings')) ?: 0.00,
+                'averageHoursWorked' => floatval($team->employees->flatMap->employeeAttendances->avg('total_hours_worked')) ?: 0.00,
             ],
             'availableRoles' => array_values(Jetstream::$roles),
             'availablePermissions' => Jetstream::$permissions,
